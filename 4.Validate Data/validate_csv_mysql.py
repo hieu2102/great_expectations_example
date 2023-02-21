@@ -5,14 +5,13 @@ from pprint import pprint
 yaml = YAML()
 context = gx.get_context()
 checkpoint_name = "csv_mysql_chkpoint" # This was populated from your CLI command.
-
 data_asset = "yellow_tripdata_sample"
 expectations_suite_name="csv_suite"
 yaml_config = f"""
 name: {checkpoint_name}
 config_version: 1.0
 class_name: SimpleCheckpoint
-run_name_template: "%Y%m%d-%H%M%S-getting_started_checkpoint"
+run_name_template: "%Y%m%d-%H%M%S-{checkpoint_name}"
 validations:
   - batch_request:
       datasource_name: mysql_datasource
